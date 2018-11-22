@@ -7,7 +7,9 @@ describe("Calculator", function(){
             expect(addition(19, 7)).toBe(26);   
         })
         it("should return an error if we don't supply two numbers", function(){
-            expect(addition("Hitchhikers", "Guide")).toBe("Error!");
+            spyOn(window, "alert");
+            addition("Hitchhikers", "alert" );
+            expect(window.alert).toHaveBeenCalledWith("Error!")
         })
     })
 })
